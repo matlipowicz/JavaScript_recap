@@ -1,0 +1,1 @@
+[praca z obiektami](https://dev.to/toshvelaga/javascript-methods-for-working-with-objects--j4j)
