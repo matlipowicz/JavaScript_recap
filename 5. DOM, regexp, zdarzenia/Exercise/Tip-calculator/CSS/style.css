@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+:root {
+    --strong-cyan: hsl(172, 67%, 45%);
+    --dark-cyan: hsl(183, 100%, 15%);
+    --dark-gray-cyan: hsl(186, 14%, 43%);
+    --gray-cyan: hsl(184, 14%, 56%);
+    --light-gray-cyan: hsl(185, 41%, 84%);
+    --v-light-gray-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --error: hsla(336, 100%, 50%, 1);
+}
+/*Reset styles*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /*10/16 = 62.5% 1rem = 10px*/
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray-cyan);
+    font-family: "Space mono", monospace;
+    font-size: 1.2rem;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--white);
+    gap: 4rem;
+    max-width: 80vw;
+
+    -webkit-box-shadow: 0px 6px 15px -6px rgba(25, 74, 64, 1);
+    -moz-box-shadow: 0px 6px 15px -6px rgba(25, 74, 64, 1);
+    box-shadow: 0px 6px 15px -6px rgba(25, 74, 64, 1);
+    border-radius: 2rem;
+    padding: 3.5rem;
+}
+
+/*!----Left section----*/
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+/*Paragraphs */
+
+.paragraph_left {
+    font-size: 1.4rem;
+    color: var(--gray-cyan);
+    margin-bottom: 1rem;
+}
+
+.paragraph_invalid {
+    text-align: right;
+    color: var(--error);
+}
+
+.people_caption {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tip_collection {
+    margin: 2rem 0 2rem 0;
+}
+/*buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(8rem, 15rem));
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem; */
+}
+
+.tip_percentage,
+.tip_custom-percentage {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-family: "Space mono", monospace;
+    font-size: 2.2rem;
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    padding: 0.1rem 1rem;
+}
+
+.tip_custom-percentage {
+    background-color: var(--v-light-gray-cyan);
+    color: var(--gray-cyan);
+}
+
+.tip_custom-percentage::placeholder {
+    text-align: center;
+}
+
+.tip_custom-percentage:hover {
+    color: var(--strong-cyan);
+}
+
+.active_btn {
+    background-color: var(--strong-cyan);
+    color: var(--dark-cyan);
+}
+
+/*Inputs*/
+
+.bill_input,
+.people_input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(--v-light-gray-cyan);
+    width: 100%;
+    height: 5rem;
+    padding: 1rem;
+    font-family: "Space mono", monospace;
+    font-size: 2.4rem;
+    text-align: right;
+}
+
+.bill_input::placeholder,
+.people_input::placeholder {
+    font-family: "Space mono", monospace;
+    font-size: 2.4rem;
+    text-align: right;
+}
+
+.bill_input {
+    background-image: url("../images/icon-dollar.svg");
+    background-position: 4% 50%;
+    background-repeat: no-repeat;
+}
+
+.people_input {
+    background-image: url("../images/icon-person.svg");
+    background-position: 4% 50%;
+    background-repeat: no-repeat;
+}
+
+/*!Error input border color */
+.people_input-error {
+    border: 2px solid var(--error);
+}
+
+.bill_input-error {
+    border: 2px solid var(--error);
+}
+
+/*!----Right section----*/
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    width: 50%;
+
+    padding: 2.5rem;
+    background-color: var(--dark-cyan);
+    border-radius: 1.2rem;
+}
+
+/*Paragraphs*/
+
+.paragraph_right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+.per_person {
+    font-size: 1rem;
+    color: var(--gray-cyan);
+}
+
+.number {
+    font-size: 3.5rem;
+    color: var(--strong-cyan);
+    text-align: right;
+}
+
+.right_amount,
+.right_total {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*Buttons*/
+
+.reset_btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-family: "Space mono", monospace;
+    font-size: 2.8rem;
+    color: var(--dark-cyan);
+    background-color: var(--dark-gray-cyan);
+}
+.reset_btn-active {
+    background-color: var(--strong-cyan);
+}
+
+/*!ERROR NUMBER */
+
+/* *Bill*/
+
+/* *People */
