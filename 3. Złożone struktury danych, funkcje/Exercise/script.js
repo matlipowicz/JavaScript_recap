@@ -7,7 +7,9 @@
 // console.log(tabOne[0], tabOne[2], tabOne[(tabOne.length - 1) / 2], tabOne[tabOne.length - 1], tabOne[tabOne.length - 2], tabOne.length);
 
 // tabOne.unshift("Neptun"); // Można też tabOne[0] = "Neptun"
-// tabOne.push("Saturn"); // Można też tabOne[(tabOne.length )] = "Saturn"
+// tabOne.push("Saturn");
+
+// Można też tabOne[0] = "Neptun" --> ta metoda nadpisuje obecny element a nie dodaje nowy
 // // tabOne[0] = "Owieczka";
 // // tabOne[tabOne.length] = "Baran"; // no raczej nie xD
 
@@ -18,6 +20,8 @@
 // console.log(tabOne[0], tabOne[2], tabOne[tabOne.length / 2], tabOne[tabOne.length - 1], tabOne[tabOne.length - 2], tabOne.length);
 
 //?? Tutaj po usunięciu ostatniego elementu wyszukanie najbardziej środkowego elementu tablicy przez metode arr.length - 1 / 2, wylogowało undefined, dopiero po usunięciu odnoesienia do ostatniego elementu tablicy wróciło do normy. WIEM, ŻE ZMIENIA DŁUGOŚĆ TABLICY, ALE NIE WIEM CZEMU ZWRÓCIŁO UNDEFINED. BO NAWET GDY MAMY DŁUGOŚĆ TABLICY - 1 TO JEST 7 I WTEDY DZIELONE PRZEZ DWA DAJE NAN 3,5 --> ZAOKRĄGLAMY W GÓRE CZYLI POWINNO WYLOGOWAĆ TAK CZY TAK 4 ELEMENT TABLICY.
+
+//* Trzeba zaokrąglać bo edytor sam tego nie zrobi i nie wyszuka środkowej liczby
 
 // tabOne.shift();
 
@@ -77,11 +81,12 @@ console.log(arrTwo);
 
 //! EX.3
 
-// const temps = [45, 21, 41, 11, -2, 13, 50, 52, 22];
+const temps = [45, 21, 41, 11, -2, 13, 50, 52, 22];
 
-// for (let i = 0; i < temps.length; i++) {
-//     console.log(Math.max(temps[i]), Math.min(temps[i]));
-// }
+//? spread operator
+
+console.log(Math.max(...temps));
+console.log(Math.min(...temps));
 
 //* Method >= ES6
 // console.log(Math.max(...temps), Math.min(...temps));
@@ -285,24 +290,37 @@ console.log(isPeselValid("97051066942"));
 
 //! EX.9
 
+// const calculator = (a, b, operand) => {
+//     let value;
+//     switch (operand) {
+//         case "+":
+//             value = a + b;
+//             break;
+//         case "-":
+//             value = a - b;
+//             break;
+//         case "*":
+//             value = a * b;
+//             break;
+//         case "/":
+//             value = a / b;
+//             break;
+//     }
+
+//     return value;
+// };
+
 const calculator = (a, b, operand) => {
-    let value;
     switch (operand) {
         case "+":
-            value = a + b;
-            break;
+            return a + b;
         case "-":
-            value = a - b;
-            break;
+            return a - b;
         case "*":
-            value = a * b;
-            break;
+            return a * b;
         case "/":
-            value = a / b;
-            break;
+            return a / b;
     }
-
-    return value;
 };
 
 console.log(calculator(12, 4, "*"));
@@ -317,26 +335,35 @@ console.log(pascalConverter(1100));
 //! EX.11
 //? Nie wiem jak do tego podejść ;/
 
-// const timeFormat = (hour, minutes, format) => {
-//     if (format === "AM" && hour <= 12) {
-//         hour += 12;
-//     }
-// };
+const timeFormat = (hours, minutes, format) => {
+    if (format === "PM" || format === "AM") {
+        if (format === "PM") {
+            hours += 12;
+
+            return `${hours}:${minutes}`;
+        }
+    } else {
+        return `${hours}:${minutes}`;
+    }
+};
+
+const hour = timeFormat(12, 23, "PM");
+console.log(hour);
 
 //! EX.12
 
-// const greetingsOrGoodbyes = (num) => {
-//     if (num % 5 === 0) {
-//         alert("Hi");
-//     } else if (num % 6 === 0) {
-//         alert("Hello");
-//     } else {
-//         alert("Bye - maybe try again :)");
-//     }
-//     return num;
-// };
+const greetingsOrGoodbyes = (num) => {
+    if (num % 5 === 0) {
+        alert("Hi");
+    } else if (num % 6 === 0) {
+        alert("Hello");
+    } else if (num % 6 !== 0 && num % 5 !== 0) {
+        alert("Bye - maybe try again :)");
+    }
+    return num;
+};
 
-// console.log(greetingsOrGoodbyes(112));
+console.log(greetingsOrGoodbyes(13));
 
 //! EX.13
 

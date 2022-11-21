@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+        <link rel="stylesheet" href="../CSS/style.css" />
+
+        <title>Tip calculator</title>
+    </head>
+    <body>
+        <main class="container">
+            <section class="left">
+                <div class="bill_amount">
+                    <p class="paragraph_left" for>Bill</p>
+                    <input type="text" placeholder="0.0" class="bill_input" />
+                </div>
+
+                <div class="tip_collection">
+                    <p class="paragraph_left">Select Tip %</p>
+                    <div class="buttons">
+                        <button class="tip_percentage">5%</button>
+                        <button class="tip_percentage">10%</button>
+                        <button class="tip_percentage">15%</button>
+                        <button class="tip_percentage">25%</button>
+                        <button class="tip_percentage">50%</button>
+                        <input type="number" class="tip_custom-percentage" placeholder="Custom" />
+                    </div>
+                </div>
+                <div class="people_amount">
+                    <div class="people_caption">
+                        <p class="paragraph_left">Number of People</p>
+                        <p class="paragraph_left paragraph_invalid" hidden>Can't be zero</p>
+                    </div>
+
+                    <input type="number" class="people_input" placeholder="0" />
+                </div>
+            </section>
+
+            <section class="right">
+                <div class="right_amount">
+                    <p class="paragraph_right">Tip Amount <span class="per_person">/ person</span></p>
+                    <p class="number" id="tip_amount">$0.00</p>
+                </div>
+                <div class="right_total">
+                    <p class="paragraph_right">Total <span class="per_person">/ person</span></p>
+                    <p class="number" id="total">$0.00</p>
+                </div>
+
+                <button class="reset_btn">Reset</button>
+            </section>
+        </main>
+        <script src="../JS/script.js"></script>
+    </body>
+</html>
