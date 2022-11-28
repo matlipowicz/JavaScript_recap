@@ -280,7 +280,7 @@ const readProperties = () => {
 
     console.log(pairs.reduce((prev, [key, value]) => ({ ...prev, [key]: value }), 0)); // To rozumiem jako prev czyli tablica, na której używamy spread operatora, tablice destrukturyzujemy na [key, value]
 
-    //? Nie rozumiem czemu zapisujemy w nawiasie [key], czy tu chodzi może o to, że też tak jakby destrukturyzujemy i wyciągamy wartość z tego klucza, która jest nazwana email i name?
+    //? Nie rozumiemczemu zapisujemy w nawiasie [key]. Czy tu chodzi może o to, że też tak jakby destrukturyzujemy i wyciągamy wartość z tego klucza, która jest nazwana email i name?
 };
 
 readProperties();
