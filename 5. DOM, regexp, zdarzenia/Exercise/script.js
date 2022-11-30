@@ -25,85 +25,85 @@
 // const buttonStop = document.querySelector(".btn_stop");
 
 // Start event
-// buttonStart.addEventListener("click", () => {
-//       clearInterval(blink);
-//       blinkArr.forEach(clearTimeout);
-//       start();
-//       state = setInterval(start, 9000);
-//   });
+buttonStart.addEventListener("click", () => {
+    clearInterval(blink);
+    blinkArr.forEach(clearTimeout);
+    start();
+    state = setInterval(start, 9000);
+});
 
 // Stop event
-// buttonStop.addEventListener("click", () => {
-//       timeoutArr.forEach(clearTimeout);
-//       clearInterval(state);
-//       handleLight();
-//   });
+buttonStop.addEventListener("click", () => {
+    clearTimeoutArr.forEach(clearTimeout);
+    clearInterval(state);
+    handleLight();
+});
 
 // Sequence start
 
-// let state;
-// let timeoutArr = [];
+let state;
+let clearTimeoutArr = [];
 
-// const start = () => {
-//     timeoutArr.push(setTimeout(firstState, 1000));
-//     timeoutArr.push(setTimeout(secondState, 4000));
-//     timeoutArr.push(setTimeout(thirdState, 6000));
-//     timeoutArr.push(setTimeout(fourthState, 8000));
-//     console.log(timeoutArr);
-// };
+const start = () => {
+    clearTimeoutArr.push(setTimeout(firstState, 1000));
+    clearTimeoutArr.push(setTimeout(secondState, 4000));
+    clearTimeoutArr.push(setTimeout(thirdState, 6000));
+    clearTimeoutArr.push(setTimeout(fourthState, 8000));
+    console.log(clearTimeoutArr);
+};
 
-// function firstState() {
-//     boxOne.style.backgroundColor = "#ff0000";
-//     boxTwo.style.backgroundColor = "#000";
-//     boxThree.style.backgroundColor = "#000";
-// }
+function firstState() {
+    boxOne.style.backgroundColor = "#ff0000";
+    boxTwo.style.backgroundColor = "#000";
+    boxThree.style.backgroundColor = "#000";
+}
 
-// function secondState() {
-//     boxOne.style.backgroundColor = "#ff0000";
-//     boxTwo.style.backgroundColor = "#ffa500";
-// }
+function secondState() {
+    boxOne.style.backgroundColor = "#ff0000";
+    boxTwo.style.backgroundColor = "#ffa500";
+}
 
-// function thirdState() {
-//     boxOne.style.backgroundColor = "#000";
-//     boxTwo.style.backgroundColor = "#000";
-//     boxThree.style.backgroundColor = "green";
-// }
+function thirdState() {
+    boxOne.style.backgroundColor = "#000";
+    boxTwo.style.backgroundColor = "#000";
+    boxThree.style.backgroundColor = "green";
+}
 
-// function fourthState() {
-//     boxOne.style.backgroundColor = "#000";
-//     boxTwo.style.backgroundColor = "#ffa500";
-//     boxThree.style.backgroundColor = "#000";
-// }
+function fourthState() {
+    boxOne.style.backgroundColor = "#000";
+    boxTwo.style.backgroundColor = "#ffa500";
+    boxThree.style.backgroundColor = "#000";
+}
 
-// // Blinking light
-// let blink;
-// let blinkArr = [];
-// const handleLight = () => {
-//     blinkArr.push(
-//         setTimeout(() => {
-//             boxOne.style.backgroundColor = "#000";
-//             boxThree.style.backgroundColor = "#000";
-//         }, 2000)
-//     );
+// Blinking light
+let blink;
+let blinkArr = [];
+const handleLight = () => {
+    blinkArr.push(
+        setTimeout(() => {
+            boxOne.style.backgroundColor = "#000";
+            boxThree.style.backgroundColor = "#000";
+        }, 2000)
+    );
 
-//     const lightBlink = () => {
-//         blinkArr.push(
-//             setTimeout(() => {
-//                 boxTwo.style.backgroundColor = "#000";
-//                 console.log("Czarny");
-//             }, 500)
-//         );
+    const lightBlink = () => {
+        blinkArr.push(
+            setTimeout(() => {
+                boxTwo.style.backgroundColor = "#000";
+                console.log("Czarny");
+            }, 500)
+        );
 
-//         blinkArr.push(
-//             setTimeout(() => {
-//                 boxTwo.style.backgroundColor = "#ffa500";
-//                 console.log("Pomarańcz");
-//             }, 1000)
-//         );
-//     };
+        blinkArr.push(
+            setTimeout(() => {
+                boxTwo.style.backgroundColor = "#ffa500";
+                console.log("Pomarańcz");
+            }, 1000)
+        );
+    };
 
-//     blink = setInterval(lightBlink, 2000);
-// };
+    blink = setInterval(lightBlink, 2000);
+};
 
 //! EX.2
 /*
@@ -218,11 +218,3 @@ bookForm.addEventListener("submit", (e) => {
 
     bookForm.after(bookElement);
 });
-
-/*
-
-1234567890123
-+48 796437090
-Mateusz
-
-*/
