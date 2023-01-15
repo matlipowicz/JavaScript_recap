@@ -126,13 +126,13 @@ body {
 .bill_input,
 .people_input {
     border: none;
-    outline: none;
+    outline: transparent;
     border-radius: 5px;
     background-color: var(--v-light-gray-cyan);
     width: 100%;
     height: 5rem;
     padding: 1rem;
-    font-family: "Space mono", monospace;
+    font-family: inherit;
     font-size: 2.4rem;
     text-align: right;
 }

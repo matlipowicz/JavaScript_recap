@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+    --main-bg-clr: #0c0032;
+    --main-box-clr: #160bb6;
+    --gradient-main-clr: linear-gradient(90deg, rgba(76, 0, 130, 0.857) 4%, rgba(64, 224, 208, 1.5) 36%);
+    --font-clr: #fff;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--main-bg-clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    background: var(--gradient-main-clr);
+    height: 500px;
+    width: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.box_caption {
+    font-size: 40px;
+    color: var(--font-clr);
+    font-family: "Open Sans", sans-serif;
+}
