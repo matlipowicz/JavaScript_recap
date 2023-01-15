@@ -218,6 +218,10 @@ class CryptoMinerStation extends Computer {
         return this.#amountGPU;
     }
 
+    set amountGPU(amount) {
+        this.#amountGPU = amount;
+    }
+
     unitInfo() {
         alert("Look into the console for unit specification");
 
@@ -236,19 +240,25 @@ class CryptoMinerStation extends Computer {
         return this.amountGPU * this.graphicProcessorUnit + this.processorSpeed * this.coreQuantitiy;
     }
 
-    minintTime(unitWats: number, time: number, cost: number): number {
+    miningTime(time: number, gpuNum: number, gpuWats: number): number {
         // kWh(1kWh = 1000W / h ) = 0.80gr
-        let consumption = unitWats / 1000;
-        let costs = consumption * time * cost * this.graphicProcessorUnit;
+        // I assume that We have one kind of GPU, function requires only number of them in one kit
+        // Time must be passed as days, so for example 2.5 is = to 2.5 day not 2.5 hours
+        let consumptionGPU = gpuWats * gpuNum * 0.001;
+        let costPerHour = 0.8;
+        let usage = time * 24;
+        let totalCost = usage * (consumptionGPU * costPerHour) * this.graphicProcessorUnit;
 
-        return Math.round(costs);
+        return parseFloat(totalCost.toFixed(2));
+
+        //* Amount of GPU * (time * )
     }
 }
 
 const miningSation = new CryptoMinerStation(800, 3.4, 32, "Gigabyte Z690 Aorus Pro xD", 1.8, 4);
 console.log(miningSation.unitInfo());
 console.log(miningSation.calculateProcessorPower());
-console.log(miningSation.minintTime(350, 240, 0.8)); // Costs per month
+console.log(miningSation.miningTime(2, 4, 50));
 
 // ! ## Zadanie 4
 
@@ -289,43 +299,42 @@ interface CryptoComputerObj {
 }
 
 class ComputerGarage {
-    Computers: object[] = [];
-    SuperComputers: object[] = [];
-    CryptoMinerStations: object[] = [];
+    computers: Computer[] = [];
+    superComputers: SuperComputer[] = [];
+    cryptoMinerStations: CryptoMinerStation[] = [];
 
     // Methods setting the computers to an arrays
 
-    addComputer(computer: any): {} {
-        let arrOne = this.Computers;
+    addComputer(computer: Computer): {} {
+        let arrOne = this.computers;
         return arrOne.push(computer);
     }
 
-    addSuperComputer(superComputer: any): {} {
-        let arrTwo = this.SuperComputers;
+    addSuperComputer(superComputer: SuperComputer): {} {
+        let arrTwo = this.superComputers;
         return arrTwo.push(superComputer);
     }
 
-    addCryptoStation(cryptoComputer: any): {} {
-        let arrThree = this.CryptoMinerStations;
+    addCryptoStation(cryptoComputer: CryptoMinerStation): {} {
+        let arrThree = this.cryptoMinerStations;
         return arrThree.push(cryptoComputer);
     }
 
     // Computer info
 
-    info(arrName: object[]) {
-        if (arrName === this.Computers || arrName === this.SuperComputers || arrName === this.CryptoMinerStations) {
-            arrName.forEach((el) => {
-                console.log(el);
-            });
-        }
-    }
+    // info(arrName: "computers" | "superComputers" | "cryptoMinerStations") {
+    //     switch (arrName) {
+    //         case :
+    //           return  arrName.forEach((e) => {});
+    //     }
+    // }
 
     // garage units info
 
     garageInfo(): object[] {
-        let basicComputers = this.Computers;
-        let superComputers = this.SuperComputers;
-        let cryptoComputers = this.CryptoMinerStations;
+        let basicComputers = this.computers;
+        let superComputers = this.superComputers;
+        let cryptoComputers = this.cryptoMinerStations;
         //Computer
         let garage: object[] = [];
 
@@ -345,15 +354,13 @@ class ComputerGarage {
     }
     // Setting specific computer to specific array
     // //? Jest inna metoda? Bo próbowałem po instanceof, ale to mi tylko zwaracało główną klase Computer na której bazuje reszta.
-    addToGarage(unit: object) {
-        let object = unit;
-
-        if (object.constructor === Computer) {
-            this.Computers.push(object);
-        } else if (object.constructor === SuperComputer) {
-            this.SuperComputers.push(object);
-        } else {
-            this.CryptoMinerStations.push(object);
+    addToGarage(unit: Computer | SuperComputer | CryptoMinerStation) {
+        if (unit.constructor === Computer) {
+            this.computers.push(unit);
+        } else if (unit.constructor === SuperComputer) {
+            this.superComputers.push(unit);
+        } else if (unit.constructor === CryptoMinerStation) {
+            this.cryptoMinerStations.push(unit);
         }
     }
 }

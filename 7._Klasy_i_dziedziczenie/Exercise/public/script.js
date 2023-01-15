@@ -166,6 +166,9 @@ class CryptoMinerStation extends Computer {
     get amountGPU() {
         return this.#amountGPU;
     }
+    set amountGPU(amount) {
+        this.#amountGPU = amount;
+    }
     unitInfo() {
         alert("Look into the console for unit specification");
         let computerSpec = {
@@ -181,47 +184,51 @@ class CryptoMinerStation extends Computer {
     calculateProcessorPower() {
         return this.amountGPU * this.graphicProcessorUnit + this.processorSpeed * this.coreQuantitiy;
     }
-    minintTime(unitWats, time, cost) {
+    miningTime(time, gpuNum, gpuWats) {
         // kWh(1kWh = 1000W / h ) = 0.80gr
-        let consumption = unitWats / 1000;
-        let costs = consumption * time * cost * this.graphicProcessorUnit;
-        return Math.round(costs);
+        // I assume that We have one kind of GPU, function requires only number of them in one kit
+        // Time must be passed as days, so for example 2.5 is = to 2.5 day not 2.5 hours
+        let consumptionGPU = gpuWats * gpuNum * 0.001;
+        let costPerHour = 0.8;
+        let usage = time * 24;
+        let totalCost = usage * (consumptionGPU * costPerHour) * this.graphicProcessorUnit;
+        return parseFloat(totalCost.toFixed(2));
+        //* Amount of GPU * (time * )
     }
 }
 const miningSation = new CryptoMinerStation(800, 3.4, 32, "Gigabyte Z690 Aorus Pro xD", 1.8, 4);
 console.log(miningSation.unitInfo());
 console.log(miningSation.calculateProcessorPower());
-console.log(miningSation.minintTime(350, 240, 0.8)); // Costs per month
+console.log(miningSation.miningTime(2, 4, 50));
 class ComputerGarage {
-    Computers = [];
-    SuperComputers = [];
-    CryptoMinerStations = [];
+    computers = [];
+    superComputers = [];
+    cryptoMinerStations = [];
     // Methods setting the computers to an arrays
     addComputer(computer) {
-        let arrOne = this.Computers;
+        let arrOne = this.computers;
         return arrOne.push(computer);
     }
     addSuperComputer(superComputer) {
-        let arrTwo = this.SuperComputers;
+        let arrTwo = this.superComputers;
         return arrTwo.push(superComputer);
     }
     addCryptoStation(cryptoComputer) {
-        let arrThree = this.CryptoMinerStations;
+        let arrThree = this.cryptoMinerStations;
         return arrThree.push(cryptoComputer);
     }
     // Computer info
-    info(arrName) {
-        if (arrName === this.Computers || arrName === this.SuperComputers || arrName === this.CryptoMinerStations) {
-            arrName.forEach((el) => {
-                console.log(el);
-            });
-        }
-    }
+    // info(arrName: "computers" | "superComputers" | "cryptoMinerStations") {
+    //     switch (arrName) {
+    //         case :
+    //           return  arrName.forEach((e) => {});
+    //     }
+    // }
     // garage units info
     garageInfo() {
-        let basicComputers = this.Computers;
-        let superComputers = this.SuperComputers;
-        let cryptoComputers = this.CryptoMinerStations;
+        let basicComputers = this.computers;
+        let superComputers = this.superComputers;
+        let cryptoComputers = this.cryptoMinerStations;
         //Computer
         let garage = [];
         basicComputers.forEach((e) => {
@@ -240,15 +247,14 @@ class ComputerGarage {
     // Setting specific computer to specific array
     // //? Jest inna metoda? Bo próbowałem po instanceof, ale to mi tylko zwaracało główną klase Computer na której bazuje reszta.
     addToGarage(unit) {
-        let object = unit;
-        if (object.constructor === Computer) {
-            this.Computers.push(object);
+        if (unit.constructor === Computer) {
+            this.computers.push(unit);
         }
-        else if (object.constructor === SuperComputer) {
-            this.SuperComputers.push(object);
+        else if (unit.constructor === SuperComputer) {
+            this.superComputers.push(unit);
         }
-        else {
-            this.CryptoMinerStations.push(object);
+        else if (unit.constructor === CryptoMinerStation) {
+            this.cryptoMinerStations.push(unit);
         }
     }
 }
