@@ -1,0 +1,40 @@
+{
+    "form": {
+        "title": "Form lead",
+        "description": "Ask me about available dates",
+        "type": "object",
+        "properties": {
+            "firstName": {
+                "type": "string",
+                "title": "First name",
+                "input_type": "text",
+                "name": "first_name",
+                "required": true,
+                "minlength": 3
+            },
+            "lastName": {
+                "type": "string",
+                "title": "Last name",
+                "input_type": "text",
+                "name": "last_name",
+                "required": true,
+                "minlength": 3
+            },
+            "email": {
+                "type": "string",
+                "title": "E-mail",
+                "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
+                "input_type": "email",
+                "name": "email",
+                "required": true
+            },
+            "question": {
+                "type": "string",
+                "title": "Ask me a question",
+                "input_type": "text",
+                "name": "message",
+                "required": true
+            }
+        }
+    }
+}
