@@ -1,104 +1,103 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&display=swap");
 :root {
-  --neon-green: hsl(150, 100%, 66%);
-  --light-gray: hsl(193, 38%, 86%);
-  --dark-gray: hsl(218, 23%, 16%);
-  --m-dark-gray: hsl(217, 19%, 24%);
-  --l-dark-gray: hsl(217, 19%, 38%);
-  --mobile-font: 1.4rem;
-  --desktop-font: 2.8rem;
+    --neon-green: hsl(150, 100%, 66%);
+    --light-gray: hsl(193, 38%, 86%);
+    --dark-gray: hsl(218, 23%, 16%);
+    --m-dark-gray: hsl(217, 19%, 24%);
+    --l-dark-gray: hsl(217, 19%, 38%);
+    --mobile-font: 1.4rem;
+    --desktop-font: 2.8rem;
 }
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 body {
-  background-color: red;
-  min-height: 100vh;
-  width: 100%;
-  font-family: "Manrope", sans-serif;
-  font-size: clamp(2.4rem, 5vw, 2.8rem);
-  font-weight: 600;
-  color: var(--light-gray);
+    min-height: 100vh;
+    width: 100%;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--light-gray);
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 16rem 1.5rem;
-  background-color: var(--dark-gray);
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: max-content;
-  width: clamp(25rem, 100%, 55rem);
-  border-radius: 1.2rem;
-  background-color: var(--m-dark-gray);
-}
-.card .card__advice {
-  margin: 3.5rem 0 3.5rem 0;
-  color: var(--neon-green);
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: 0.25rem;
-}
-.card .card__advice--id {
-  margin-left: 0.5rem;
-}
-.card .card__quote {
-  text-align: center;
-  width: 90%;
-}
-.card .card__quote:after {
-  display: flex;
-  justify-content: center;
-  content: url("/advice_generator/other/advice-generator-app-main/images/pattern-divider-mobile.svg");
-  margin-top: 2rem;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-.card .card__dice-box {
-  background-color: var(--neon-green);
-  padding: 2rem 2.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  bottom: -4rem;
-  transition: all 0.5s;
-}
-.card .card__dice-box:hover {
-  box-shadow: 0 0 2rem var(--neon-green);
-  rotate: 360deg;
-}
-.card .card__dice-box:active {
-  bottom: -4.5rem;
-}
-
-@media screen and (min-width: 800px) {
-  .container {
     display: flex;
     justify-content: center;
-    align-items: center;
     min-height: 100vh;
     padding: 16rem 1.5rem;
     background-color: var(--dark-gray);
-  }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    width: clamp(25rem, 100%, 55rem);
+    border-radius: 1.2rem;
+    background-color: var(--m-dark-gray);
+}
+.card .card__advice {
+    margin: 3.5rem 0 3.5rem 0;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.25rem;
+}
+.card .card__advice--id {
+    margin-left: 0.5rem;
+}
+.card .card__quote {
+    text-align: center;
+    width: 90%;
+}
+.card .card__quote:after {
+    display: flex;
+    justify-content: center;
+    content: url("/advice_generator/other/advice-generator-app-main/images/pattern-divider-mobile.svg");
+    margin-top: 2rem;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.card .card__dice-box {
+    background-color: var(--neon-green);
+    padding: 2rem 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    bottom: -4rem;
+    transition: all 0.5s;
+}
+.card .card__dice-box:hover {
+    box-shadow: 0 0 2rem var(--neon-green);
+    rotate: 360deg;
+}
+.card .card__dice-box:active {
+    bottom: -4.5rem;
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 16rem 1.5rem;
+        background-color: var(--dark-gray);
+    }
 }
 
 /*# sourceMappingURL=main.css.map */

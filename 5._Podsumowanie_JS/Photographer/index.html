@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/style.css" />
+        <title>Vite + TS</title>
+    </head>
+    <body>
+        <main id="photographer"></main>
+
+        <ul class="button-list">
+            <li class="button-list__prev"><button class="button__prev" role="button">Prev</button></li>
+            <p class="button-list__page-num">Page <span id="page-num"></span> of <span id="page-num__total"></span></p>
+            <li class="button-list__next"><button class="button__next" role="button">Next</button></li>
+        </ul>
+        <script type="module" src="/src/main.ts" defer></script>
+    </body>
+</html>

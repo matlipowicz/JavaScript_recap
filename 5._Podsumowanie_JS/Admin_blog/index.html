@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/style.css" />
+        <title>Vite + TS</title>
+    </head>
+    <body>
+        <main id="admin">
+            <table class="admin__table">
+                <thead class="admin__table-head">
+                    <tr class="admin__table-row active-row">
+                        <th class="admin__table-header">verify</th>
+                        <th class="admin__table-header">
+                            <button class="sort-name btn__sort" data-sort="name">name <i class="arrow up"></i></button>
+                        </th>
+                        <th class="admin__table-header">
+                            <button class="sort-email btn__sort" data-sort="email">e-mail <i class="arrow up"></i></button>
+                        </th>
+                        <th class="admin__table-header header__buttons">
+                            <button class="sort-comment btn__sort" data-sort="comment">body <i class="arrow up"></i></button>
+                            <button class="delete-row__btn">Delete</button>
+                        </th>
+                        <th class="admin__table-header">action</th>
+                    </tr>
+                </thead>
+                <tbody class="admin__table-body"></tbody>
+            </table>
+        </main>
+        <script type="module" src="/src/main.ts" defer></script>
+    </body>
+</html>
