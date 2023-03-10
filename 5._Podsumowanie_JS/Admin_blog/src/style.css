@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Open Sans", sans-serif;
+}
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+#admin {
+    display: flex;
+    justify-content: center;
+}
+
+.admin__table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.61);
+}
+.admin__table-head {
+    background-color: #535bf2;
+    color: #ffffff;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.admin__table-rw {
+}
+
+.active-row {
+    background-color: rgba(108, 122, 137, 0.4);
+}
+
+.admin__table-header {
+    padding: 12px 15px;
+}
+
+.admin__table-cell {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.admin__table-action {
+    text-align: center;
+}
+.admin__table-comment {
+}
+
+.admin__table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.admin__table tbody tr:last-of-type {
+    border-bottom: thin solid #535bf2;
+}
+
+.btn-delete {
+    background-color: #535bf2;
+    border: none;
+    border: 2px solid #535bf2;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    font-weight: 600;
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: transparent;
+    border: 2px solid #fff;
+    transition: all 0.5s;
+}
+
+/*! Sorting buttons */
+
+.sort-name {
+}
+
+.sort-email {
+}
+
+.sort-comment {
+}
+
+.btn__sort {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #000;
+    border: 2px solid transparent;
+    background-color: #f9f6f0;
+    border-radius: 1.6rem;
+    padding: 0.5rem 2rem;
+}
+
+.btn__sort:hover {
+    background-color: #d1bea8;
+    /* transition: all 2s; */
+}
+
+.btn__sort:hover .up,
+.btn__sort:focus .up {
+    transition: all 0.2s;
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+}
+.btn__sort:hover .down,
+.btn__sort:focus .down {
+    transition: all 0.2s;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transition: all 0.2s;
+}
+
+.header__buttons {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.delete-row__btn {
+    opacity: 0;
+    visibility: none;
+    position: absolute;
+    bottom: 20rem;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #000;
+    border: 2px solid transparent;
+    background-color: #f9f6f0;
+    border-radius: 1.6rem;
+    padding: 0.5rem 2rem;
+}
+.delete-row__btn:hover,
+.delete-row__btn:focus {
+    background-color: transparent;
+    color: #d1bea8;
+    border: 2px solid #d1bea8;
+    margin-top: -2px;
+}
+
+.show__btn {
+    opacity: 1;
+    visibility: visible;
+    bottom: 18%;
+    left: 2rem;
+    transition: all 0.5s;
+}

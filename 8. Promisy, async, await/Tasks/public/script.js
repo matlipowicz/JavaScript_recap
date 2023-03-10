@@ -192,7 +192,21 @@ function calculateData(item) {
     //* Add up the populations in a continents
     //? Jaki typ tutaj w parametrze funkcji skoro przekazuje obiekt, który ma pogrupowane tablice z osadzonymi dalej obiekatmi?
     const sumPopulation = (arr) => {
+        console.log("sumPopulation arr", arr);
         let sortedPopulation = [];
+        const answer = Object.entries(arr)
+            .map((el) => {
+            return {
+                name: el[0],
+                population: el[1].reduce((prev, cur) => {
+                    return (prev += cur.population);
+                }, 0),
+            };
+        })
+            .sort((a, b) => {
+            return a.population - b.population;
+        });
+        console.log("answer", answer);
         for (const num in arr) {
             console.log(arr[num]);
             const populationCountries = arr[num].map((element) => ({
